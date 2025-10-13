@@ -18,10 +18,10 @@
 | 与非(NAND)  |            $$Y = \overline{A\cdot B}$$             | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/2d8fd4735cf0d2455645beb491776fde.png#pic_center) | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/5499a38a5448a04e849f9b25a81a46da.png#pic_center) |
 |  或非(NOR)  |               $$Y = \overline{A+B}$$               | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/600730d02f3f05fe58d47a8a31866622.png#pic_center) | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/7a3c513248d8b16f236331b0b36b0562.png#pic_center) |
 |  异或(XOR)  | $$Y = A\bigoplus B = A\overline{B}+\overline{A}B$$ | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/8dd608778c7869fd6b0b1b72fc718b2c.png#pic_center) | ![在这里插入图片描述](./assets/9a25f5a5faf21b1696ea3f9d16ae10e4.png) |
-| 同或(XNOR)  |  $$Y = A \odot B = \overline{A}\overline{B}+AB$$   | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/4470f5e98906910e23a57a4b1b5e2433.png#pic_center) | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/c8e0b482a1cab145a12ed0c30bd1fc52.png#pic_center) |
-| 与或非(AOI) |             $$Y = \overline{AB + CD}$$             | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/2072e4d329ac7b20e0a4ec0cc3b93249.png#pic_center) | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/35532635d86e16e71af03743c199539f.png#pic_center) |
+| 同或(XNOR)  | $$Y = A \odot B = \overline{A} \ \overline{B}+AB$$ | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/4470f5e98906910e23a57a4b1b5e2433.png#pic_center) | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/c8e0b482a1cab145a12ed0c30bd1fc52.png#pic_center) |
+| 与或非(AOI) |              $$Y = \overline{AB+CD}$$              | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/2072e4d329ac7b20e0a4ec0cc3b93249.png#pic_center) | ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/35532635d86e16e71af03743c199539f.png#pic_center) |
 
-**异或(XOR,Exclusive OR)**解释:"相异为真"
+**异或(XOR,Exclusive OR)** 解释:"相异为真"
 
 >   作用(1)比较器:如果两位不相等,则XOR=1
 >
@@ -29,11 +29,11 @@
 >
 >   作用(3)加法器:**半加器**中,两个二进制相加的本位和就是XOR的结果:$$1 \ XOR \ 1 = 0,1 + 1 = 10$$
 
-**同或(XNOR,Exclusive NOR)**解释:"相同为真"
+**同或(XNOR,Exclusive NOR)** 解释:"相同为真"
 
 >   作用(1)比较器:如果两位相等,则XNOR=1(<font color=red>直接的作为CPU的比较器(指令/数据)</font>)
 
-**与或非(AOI,And OR Invert)**解释:"分组与,一起或,整体非"
+**与或非(AOI,And OR Invert)** 解释:"分组与,一起或,整体非"
 
 >   (配置是至少四路输入的逻辑)
 >
@@ -67,7 +67,7 @@
 
 (3)变量和常量之间的关系
 
-| AND  | $$\begin{cases}A\cdot 1 = A\\ \\A\cdot 0 = 0 \\\\ A\cdot \overline{A} = 0\end{cases}$$ |
+| AND  | ```math \begin{cases}A\cdot 1 = A\\ \\A\cdot 0 = 0 \\\\ A\cdot \overline{A} = 0\end{cases}``` |
 | :--: | :----------------------------------------------------------: |
 |  OR  | $$\begin{cases}A+ 1 = 1\\ \\A+ 0 = A \\\\ A+ \overline{A} = 1\end{cases}$$ |
 
