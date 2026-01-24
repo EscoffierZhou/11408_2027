@@ -67,17 +67,35 @@
 
 (3)变量和常量之间的关系
 
-| AND  | ```math \begin{cases}A\cdot 1 = A\\ \\A\cdot 0 = 0 \\\\ A\cdot \overline{A} = 0\end{cases}``` |
-| :--: | :----------------------------------------------------------: |
-|  OR  | $$\begin{cases}A+ 1 = 1\\ \\A+ 0 = A \\\\ A+ \overline{A} = 1\end{cases}$$ |
+  AND: 	$$\begin{cases}A\cdot 1 = A\\ \\A\cdot 0 = 0 \\\\ A\cdot \overline{A} = 0\end{cases}$$
+
+
+
+   OR: 	$$\begin{cases}A+ 1 = 1\\ \\A+ 0 = A \\\\ A+ \overline{A} = 1(重要)\end{cases}$$
+
+
 
 ###### **3.三个基本原则**
 
-|  规则名称   |                          结论和证明                          |                结论内容                |
-| :---------: | :----------------------------------------------------------: | :------------------------------------: |
-| (1)代入规则 | $$\begin{cases}\overline{A+B+C} = \overline{A}\cdot \overline{B}\cdot\overline{C}&(结合律+德摩根律)\\ \\ \overline{ABC} = \overline{A}+\overline{B}+\overline{C}&(结合律+德摩根反用)\end{cases} $$ |                直接代入                |
-| (2)反演规则 | $$\begin{cases}\because F = A + \overline{B+\overline{C} +\overline{D+E}}\\\\\therefore\overline{F} = \overline{A}\cdot \overline{\overline{B}\cdot C\cdot\overline{D}\cdot\overline{E}}\end{cases}$$ | 求函数F的反函数:<br>将原变量变为反变量 |
-| (3)对偶规则 |                 $$\begin{cases}\end{cases}$$                 |                                        |
+   规则名称  	           结论和证明                  	         
+
+  (1)代入规则	$$\begin{cases}\overline{A+B+C} = \overline{A}\cdot \overline{B}\cdot\overline{C}&(结合律+德摩根律)\\ \\ \overline{ABC} = \overline{A}+\overline{B}+\overline{C}&(结合律+德摩根反用)\end{cases}$$	
+
+>   **函数直接代入相关结论即可**
+
+
+
+  (2)反演规则	$$\begin{cases}\because F = A + \overline{B+\overline{C} +\overline{D+E}}\\\\\therefore\overline{F} = \overline{A}\cdot \overline{\overline{B}\cdot C\cdot\overline{D}\cdot\overline{E}}\end{cases}$$		
+
+>   **函数中原变量反变量互换,与或运算互换(乘加互换);两个及以上的变量长非号不变**
+
+
+
+  (3)对偶规则	$$\overline{A \cdot B} = \overline{A} + \overline{B}$$
+
+>   **函数中各变量保持不变,与或运算互换(乘加互换);两个及以上的变量长非号不变**
+
+###### **4.最小项表达式**
 
 
 
