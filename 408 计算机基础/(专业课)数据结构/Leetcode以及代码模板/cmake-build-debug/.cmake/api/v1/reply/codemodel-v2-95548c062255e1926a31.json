@@ -1,0 +1,121 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						4
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "Template",
+					"childIndexes" : 
+					[
+						2
+					],
+					"jsonFile" : "directory-Template-Debug-6dc873326892d98e238a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Template"
+				},
+				{
+					"build" : "Template/Chap5_Tree",
+					"childIndexes" : 
+					[
+						3
+					],
+					"jsonFile" : "directory-Template.Chap5_Tree-Debug-7664759525c0649cb9f4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "Template/Chap5_Tree"
+				},
+				{
+					"build" : "Template/Chap5_Tree/94.inorder_traversal",
+					"jsonFile" : "directory-Template.Chap5_Tree.94.inorder_traversal-Debug-b798dbcac7321d5cf6cd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "Template/Chap5_Tree/94.inorder_traversal",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Leetcode",
+					"jsonFile" : "directory-Leetcode-Debug-ba2d5bebc577e1235812.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Leetcode"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "DS_408",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "inorder_traversal::@f5af12517f5f386d70eb",
+					"jsonFile" : "target-inorder_traversal-Debug-271729b12ad1200fed62.json",
+					"name" : "inorder_traversal",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "F:/desktop/11408_2027/408 \u8ba1\u7b97\u673a\u57fa\u7840/(\u4e13\u4e1a\u8bfe)\u6570\u636e\u7ed3\u6784/Leetcode\u4ee5\u53ca\u4ee3\u7801\u6a21\u677f/cmake-build-debug",
+		"source" : "F:/desktop/11408_2027/408 \u8ba1\u7b97\u673a\u57fa\u7840/(\u4e13\u4e1a\u8bfe)\u6570\u636e\u7ed3\u6784/Leetcode\u4ee5\u53ca\u4ee3\u7801\u6a21\u677f"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

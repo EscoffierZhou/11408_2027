@@ -1,0 +1,12 @@
+F:\JetBrain\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=F:/JetBrain/CLion/bin/ninja/win/x64/ninja.exe -G Ninja -S "F:\desktop\11408_2027\408 计算机基础\(专业课)数据结构\Leetcode以及代码模板" -B "F:\desktop\11408_2027\408 计算机基础\(专业课)数据结构\Leetcode以及代码模板\cmake-build-debug"
+-- ====================================================
+-- &&&    found executable programme: 94.inorder_traversal(中序遍历)
+-- ====================================================
+-- ***  Exiting 2-level folder 94.二叉树的中序遍历
+-- *** Exiting 1-level folder: Chap5树
+-- ====================================================
+-- !!! Cmake built successfully
+-- ====================================================
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: F:/desktop/11408_2027/408 计算机基础/(专业课)数据结构/Leetcode以及代码模板/cmake-build-debug

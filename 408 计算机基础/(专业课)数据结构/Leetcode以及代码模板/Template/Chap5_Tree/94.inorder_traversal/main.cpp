@@ -1,19 +1,22 @@
-#include <iostream>
-#include <vector>
-#include <stdlib.h>
-#include "inorder.h"
-using namespace std;
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "misc-no-recursion"
 // 中序遍历:左子树-根节点-右子树的方式进行遍历
 // 整体思路:
 // 1.定义一个vector用于存储结果(C++:STL/C:链式存储malloc)
 // 2a.进行中序遍历(Cpp)
-    // a.判空,返回空vector
-    // b.递归调用inorder(root->left),push_back,inorder(root->right)
-    // c.返回结果
+// a.判空,返回空vector
+// b.递归调用inorder(root->left),push_back,inorder(root->right)
+// c.返回结果
 // 2b.进行中序遍历(Cpp)
-    // a.判空,返回空vector
-    // b.递归调用inorder(root->left),push_back,inorder(root->right)
-    // c.返回结果
+// a.判空,返回空vector
+// b.递归调用inorder(root->left),push_back,inorder(root->right)
+// c.返回结果
+
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include "inorder.h"
+using namespace std;
 class Solution_Cpp {
 public:
     void inorder(TreeNode* root, vector<int>& res) {
@@ -59,33 +62,24 @@ public:
 
 
 int main() {
-    // --- 1. 构建一颗简单的二叉树 ---
-    //       1
-    //      / \
-    //     2   3
-    //    /
-    //   4
-    TreeNode* root = new TreeNode(1);
-    root->left = new TreeNode(2);
-    root->right = new TreeNode(3);
+    // TreeNode* root   = new TreeNode(1);
+    auto root        = new TreeNode(1);
+    root->left       = new TreeNode(2);
+    root->right      = new TreeNode(3);
     root->left->left = new TreeNode(4);
-
     cout << "Expected Inorder: 4 2 1 3" << endl;
 
-    // --- 2. 测试 C++ 版本 (Solution_Cpp) ---
+    // C++
     Solution_Cpp cpp_sol;
     vector<int> cpp_res = cpp_sol.inorderTraversal(root);
     cout << "C++ Result: ";
-    for (int val : cpp_res) {
-        cout << val << " ";
-    }
+    for (int val : cpp_res) cout << val << " ";
     cout << endl;
 
-    // --- 3. 测试 C 版本 (Solution_C) ---
+    // C
     Solution_C c_sol;
     int returnSize = 0;
     int* c_res = c_sol.inorderTraversal(root, &returnSize);
-
     cout << "C Result:   ";
     for (int i = 0; i < returnSize; i++) {
         cout << c_res[i] << " ";
@@ -97,3 +91,9 @@ int main() {
     c_sol.destroyTree(root);
     return 0;
 }
+
+//       1
+//      / \
+//     2   3
+//    /
+//   4
