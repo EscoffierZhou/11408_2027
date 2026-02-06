@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\desktop\11408_2027\408 计算机基础\11408数据结构\Leetcode以及代码模板\build\CMakeFiles\2f799e1d5e2395cb5953e6ca3b697a10\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{83D29BED-9DC1-3330-A4FA-A867005ACBDB}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
