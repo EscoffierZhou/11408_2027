@@ -19,6 +19,11 @@
 using namespace std;
 class Solution_Cpp {
 public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> res;
+        inorder(root, res);
+        return res;
+    }
     void inorder(TreeNode* root, vector<int>& res) {
         if (!root) {
             return;
@@ -27,15 +32,17 @@ public:
         res.push_back(root->val);
         inorder(root->right, res);
     }
-    vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> res;
-        inorder(root, res);
-        return res;
-    }
 };
 
 class Solution_C{
 public:
+    // 注意C语言要求:(1)type(2)函数位置,放个原型
+    int* inorderTraversal(struct TreeNode* root, int* returnSize) {
+        int* res = (int*)malloc(sizeof(int) * 501);
+        *returnSize = 0;
+        inorder(root, res, returnSize);
+        return res;
+    }
     void inorder(struct TreeNode* root, int* res, int* resSize) {
         if (!root) {
             return;
@@ -43,12 +50,6 @@ public:
         inorder(root->left, res, resSize);
         res[(*resSize)++] = root->val;
         inorder(root->right, res, resSize);
-    }
-    int* inorderTraversal(struct TreeNode* root, int* returnSize) {
-        int* res = (int*)malloc(sizeof(int) * 501);
-        *returnSize = 0;
-        inorder(root, res, returnSize);
-        return res;
     }
     void destroyTree(TreeNode* root) {
         if (root == nullptr) return;
@@ -58,16 +59,19 @@ public:
     }
 };
 
-
-
-
 int main() {
     // TreeNode* root   = new TreeNode(1);
     auto root        = new TreeNode(1);
     root->left       = new TreeNode(2);
     root->right      = new TreeNode(3);
+    root->right->left= new TreeNode(5);
     root->left->left = new TreeNode(4);
-    cout << "Expected Inorder: 4 2 1 3" << endl;
+    cout << "Binary T(inorder):(left-root-right)"<<endl<<
+         """       1\n"
+         "      / \\\n"
+         "     2   3\n"
+         "    /    /\n"
+         "   4    5""" << endl;
 
     // C++
     Solution_Cpp cpp_sol;

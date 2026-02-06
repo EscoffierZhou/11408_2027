@@ -11,7 +11,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
-// C++ 版本
+// C++ 版本(题目里面其实有)
 // 注意形参里面的struct可写可不写,不能写auto(C++17:形参里面不能用auto)
 inline void inorder_cpp(TreeNode* root, std::vector<int>& res) {
     // vector<int>:自动扩容,自动记录 size
@@ -22,7 +22,7 @@ inline void inorder_cpp(TreeNode* root, std::vector<int>& res) {
     inorder_cpp(root->right, res);      // 右
 }
 
-// C 版本(C 语言没有可自动增长的容器，也没有引用传参)
+// C 版本(题目里面其实有,C 语言没有可自动增长的容器，也没有引用传参)
 // 注意形参里面的struct必写,因为C语言要求首次必须声明类型->除非typedef
 inline void inorder_c(struct TreeNode* root, int* res, int* resSize) {
     if (!root) return;
