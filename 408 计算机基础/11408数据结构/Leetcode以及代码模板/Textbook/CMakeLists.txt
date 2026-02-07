@@ -1,2 +1,4 @@
 message(STATUS "***  Exiting 2-level folder Chap1_DS")
 add_subdirectory(Chap1_DS)
+message(STATUS "***  Exiting 2-level folder Chap2_SequentialList")
+add_subdirectory(Chap2_SequentialList)
