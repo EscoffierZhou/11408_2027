@@ -2,8 +2,10 @@
 
 ## 1.线性表的定义
 
-**线性表:由n($n\geq 0$)个相同数据类型的元素组成的优先序列,其中n为表长**
+**线性表:由n($n\geq 0$)个<font color=red>相同数据类型</font>的元素组成的<font color=red>有限序列</font>,其中n为表长**
 
+>   这里的数据类型可以是`int`或者`*ListNode`
+>
 >   ($n=0$,线性表为空表)
 >
 >   使用**$L = (a_1,a_2,\cdots,a_n)$**表示线性表;$a_1$表示表头元素,$a_n$表示表尾元素(满足线性要求)
@@ -26,14 +28,17 @@
 
 ```
 InitList(&L):			构造空的线性表
-Length(L):				返回线性表中元素的个数
-LocateElem(L,e):		按值查找:返回值为e的元素位置
-GetElem(L,i):			按位查找:返回第i个位置的元素
+DestroyList(&L):		销毁操作:释放其内存空间
+
 ListInsert(&L,i,e):		插入操作:在L的第i个位置插入元素e
 ListDelete(&L,i,&e):	删除操作:删除L的第i个位置的元素,并返回其值
+
+LocateElem(L,e):		按值查找:返回值为e的元素位置
+GetElem(L,i):			按位查找:返回第i个位置的元素
+
+Length(L):				返回线性表中元素的个数
 PrintList(L):			输出操作:按照先后顺序依次输出线性表的元素
 Empty(L):				判空操作:如果线性表为空返回True
-DestroyList(&L):		销毁操作:释放其内存空间
 ```
 
 ## 3.例题
