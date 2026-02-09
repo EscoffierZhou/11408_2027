@@ -1,0 +1,5 @@
+message(STATUS "====================================================")
+message(STATUS "&&&    found executable programme: 2_Reverse_Add_Correct")
+add_executable(2_Reverse_Add_Correct 2_Reverse_Add_Correct.cpp)
+message(STATUS "&&&    found executable programme: 2_Reverse_Add_False")
+add_executable(2_Reverse_Add_False 2_Reverse_Add_False.cpp)
