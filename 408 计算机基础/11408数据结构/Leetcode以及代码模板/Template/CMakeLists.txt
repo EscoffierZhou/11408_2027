@@ -1,2 +1,6 @@
+message(STATUS "***  Exiting 2-level folder Chap2_LinkList")
+add_subdirectory(Chap2_LinkList)
+message(STATUS "***  Exiting 2-level folder Chap5_Tree")
 add_subdirectory(Chap5_Tree)
-message(STATUS "***  Exiting 1-level folder: Chap5树")
+message(STATUS "***  Exiting 2-level folder common")
+add_subdirectory(common)
