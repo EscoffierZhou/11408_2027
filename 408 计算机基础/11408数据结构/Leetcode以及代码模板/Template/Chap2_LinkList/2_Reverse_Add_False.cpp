@@ -7,7 +7,11 @@ using namespace std;
 // 致命错误(2):vetor初始化,和vector的大小(size而不是length)
 // 致命错误(3):加法不是二维问题,会导致重复加法
 // 致命错误(4):最后还要倒腾成链表
-struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
+struct ListNode {
+    int val;
+    ListNode * next;
+};
+struct ListNode* addTwoNumbers(const struct ListNode* l1,const struct ListNode* l2) {
     // 问题(1):单项链表无法从后遍历
     // 问题(2):想不到一个[]可以完成的
     vector<int>L1;
@@ -30,7 +34,7 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     // L1更长
     for(int i = 0;i<longer_length;i++){
         for(int j = 0;j<shorter_length;j++){
-            if(longer_length == L2.length()){
+            if(longer_length == L2.size()){
                 if(L2[j]){
                     // 单个Node.val范围是[0,9]
                     result = L1[i]+L2[j];
