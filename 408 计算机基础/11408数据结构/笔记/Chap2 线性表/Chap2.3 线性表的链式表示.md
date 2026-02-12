@@ -10,6 +10,8 @@
 
 >   链表结点:元素自身的信息(data)+指向后继结点的指针(next)
 >
+>   额外提醒:即数据域+位于堆(malloc)的next指针(存放的是链接地址)
+>
 >   **所以链式的任意存储单元也是有代价的(额外的指针空间),是非随机存储的存储结构</font>**
 
 ```C++
@@ -92,6 +94,7 @@ int Length(LinkList L){
 
 ```C++
 LNode *GetElem(LinkList L,int i){
+    if(i<0)return NULL;
     LNode *p = L;//初始化指针
     int j=0;
     while(p!=NULL && j<i){
@@ -108,7 +111,7 @@ LNode *GetElem(LinkList L,int i){
 
 ```C++
 LNode *LocateElem(LinkList L,ElemType e){
-    LNode *p=L->next;
+    LNode *p=L->next; // 首元结点
     while(p!=NULL&&p->data!=e){
         p=p->next;
     }
@@ -138,6 +141,14 @@ bool ListInsert_post(LinkList &L,int i,ElemType e){
     p->next = s;		// 再连前
     return true;
 }
+// 如果不带有头指针,操作第一个元素还需要修改头指针
+if(i==1){
+	LNode *s = (LNode *)malloc(sizeof(LNode));
+    s->data = e;
+    s->next = L;
+    L = s; // 修改头指针
+    return true;
+}
 ```
 
 >如果先连前(`p->next=s`),再连后(`s->next=p->next`)等价于`s->next=s`循环
@@ -149,10 +160,10 @@ bool ListInsert_post(LinkList &L,int i,ElemType e){
 >   **整体而言操作是`O(N)`,单纯插入操作是`O(1)`**
 
 ```c++
-bool ListInsert_pre(LinkList &L,int i,ElemType e){
+bool ListInsert_pre(LNode *p,Elemtype e){
 	if (p == NULL) return false; 
-    LNode *s = (LNode *)malloc(sizeof(LNode));
-    if (s == NULL) return false; 
+    LNode *s = (LNode *)malloc(sizeof(LNode)); 
+    if (s == NULL) return false; // 内存申请失败
     s->next = p->next; 
     p->next = s;       
     s->data = p->data; 
@@ -207,14 +218,14 @@ bool ListDelete_post(LNode *p) {
 
 由于L指针不变,所以新添的都在前面,符合FILO,栈
 
-**->所以遇到链表原地逆置/大数低位相加,直接用头插法插回去即可**
+**->所以遇到链表==原地逆置/大数低位相加==,直接用头插法插回去即可**
 
 ```C++
 LinkList List_HeadInsert(LinkList &L){
     int x;
     LNode *s; // 野指针
     L = (LNode*)malloc(sizeof(LNode));
-    L ->next = NULL;
+    L ->next = NULL;	// 好的习惯
     scanf("%d",&x);
     while(x!=9999){
         s = (LNode*)malloc(sizeof(LNode));
@@ -267,6 +278,15 @@ typedef struct DNode{
     Elemtype data;
     struct DNode *prior,*next;
 }DNode,*DLinkList;
+// 初始化
+bool InitDLinkList(DLinkList &L){
+ 	L = (DNode *)malloc(sizeof(DNode));
+    if(L==NULL)
+        return false;
+    L->prior = NULL;	// 好习惯
+    L->next = NULL;		// 好习惯
+    return true;
+}
 ```
 
 ###### **1.后插法双链表的插入操作(已知`DNode *p`)**
@@ -337,7 +357,7 @@ bool ListDelete_post(DNode *p, DNode *q, Elemtype &e){
 ```C++
 bool ListDelete_pre(DNode *p,DNode *q,Elemtype &e){
     if(p==q||p==NULL||q==NULL)return false;
-    if(q->prior==NULL)return false; // 头节点数据都没有
+    if(q->prior==NULL)return false; // 额外:头节点数据都没有
     e = q->data;
     // (1)先接
  	p->prior = q->prior;
@@ -346,6 +366,17 @@ bool ListDelete_pre(DNode *p,DNode *q,Elemtype &e){
 	free(q);
     return true;
 }
+```
+
+###### **5.遍历操作**
+
+```C++
+// 后向遍历
+while(p!=NULL){p=p->next;}
+// 前向遍历
+while(p!=NULL){p=p->prior;}
+// 前向遍历(除了头节点)
+while(p->prior!=NULL){p=p->prior}
 ```
 
 ## 4.循环链表
@@ -386,6 +417,16 @@ bool ListDelete_pre(DNode *p,DNode *q,Elemtype &e){
 
 >   判空条件:不再是`L->next = NULL;`,而是`L->next=L;L->prior=L;`
 
+```C++
+// 插入操作
+bool InsertNextDNode(DNode *p,DNode *s){
+    s->next = p->next;
+    p->next->prior=s;
+    s->prior=p;
+    p->next=s;
+}
+```
+
 ## 5.静态链表
 
 **定义:静态链表是用数组模拟线性表的链式存储结构,包括`data域`和`next域`**
@@ -397,6 +438,8 @@ bool ListDelete_pre(DNode *p,DNode *q,Elemtype &e){
 >   **需要模拟free:将被删除的结点插回备用链表O(1)**
 >
 >   ==虽然使用了数组,但是不支持随机存储,**需要从头节点一个个找**==
+>
+>   **<font color=red>固定长度!!已经定死了!!</font>**
 
 ```c++
 // ADT
@@ -404,12 +447,19 @@ bool ListDelete_pre(DNode *p,DNode *q,Elemtype &e){
 typedef struct{
     ElemType data;
     int next;	// 使用next==-1表示NULL
-}SLinkList[MaxSize];
+    // 注意这里其实是链接地址
+}SLinkList[MaxSize]; // 相当于每次新建一个MaxSize大小的静态链表
 ```
 
 >   出现目的(1):有些编程语言(Basic)不支持指针
 >
 >   出现目的(2):内存地址固定不允许动态分配的嵌入式系统
+
+```C++
+// 初始化:把next置为-1即可
+// 查找:相当于链表O(n),向后查找
+// 插入:随便找一个空的表位置插入元素,只不过要修改i-1和插入结点的链接地址
+```
 
 ## 6.顺序表和链表的比较
 
@@ -427,7 +477,7 @@ typedef struct{
 
 ###### **3.查找,插入,删除操作**
 
-按值查找:无序表($O(n)$),有序表($O(log_2n)$二分查找)
+按值查找:无序表($O(n)$),**有序表**(==$O(log_2n)$二分查找==)
 
 按序查找:顺序表($$O(1)$$),链表($$O(n)$$)
 
@@ -456,3 +506,6 @@ typedef struct{
 | **度量公式 (查找)**    | $T(n) = O(1)$ (按位)<br>$T(n) =O(n)$ (按值，有序可$O(\log n)$) | $T(n) = O(n)$ (无论按位还是按值)                             |
 | **度量公式 (插入/删)** | $T(n) = O(n)$ (平均移动$n/2$个元素)                          | $T(n) = O(n)$ (已知位置,需要遍历)<br>$T(n) = O(1)$ (已知指针,无需遍历) |
 
+基本上顺序表只有查上面具有优势
+
+回答问题:逻辑结构是什么+存储结构是什么样的+基本操作时间复杂度
