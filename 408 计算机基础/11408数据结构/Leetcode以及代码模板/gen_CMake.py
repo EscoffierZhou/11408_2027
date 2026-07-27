@@ -129,9 +129,9 @@ def show_menu(root: Path):
             print(f"    {cpp.name}")
 
     print("\n[a] 上一级目录")
-    print("[b] 生成当前目录（二级）CMakeLists.txt")
+    print("[b] 生成当前目录（二级）CMakeLists.txt(新建章节)")
     print("[c] 生成项目级 CMakeLists.txt")
-    print("[d] 生成 Chapter 级 CMakeLists.txt")
+    print("[d] 生成 Chapter 级 CMakeLists.txt(ADT+Problems)")
 
 
 def main():

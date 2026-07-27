@@ -2,7 +2,7 @@
 
 ## 1.时间复杂度题目
 
-**<font color=red>主要是别把n*2和n\*\*2搞混了,同时n/2的迭代深度要控制住($log_2(n)$)</font>**
+**<font color=red>主要是别把2n和n\*\*2搞混了,同时n/2的迭代深度要控制住($log_2(n)$)</font>**
 
 >   ==外层执行n/2,内层执行(1+n)n/2,整体O(n^2)==
 >
@@ -14,8 +14,9 @@
 void fun(int n){
     int i=1;
     while(i<=n)
-        i=i*2;
+        i=i*2; // i,2i,4i,8i
 }
+
 ```
 
 >错误的:$O(n)$,while语句执行次数每次都折半,而不是开方
@@ -49,9 +50,10 @@ for(i=n-1;i>1;i--)
     for(j=1;j<i;j++)
         if(A[j]>A[j+1])
             swap(A[j],A[j+1])
+            // 10 9 8 7 6 5 4 3 2 1
 ```
 
->   最坏情况就是两个for执行完,外层for执行n次,内层for执行$n(n+1)/2\rightarrow n^2(n+1)/2 \rightarrow O(n^2)$
+>   最坏情况就是两个for执行完,外层for执行n次,内层for执行$n(n+1)/2\rightarrow [n^2(n+1)/2] \rightarrow O(n^2)$
 
 ###### **4.下列算法的时间复杂度为?**
 
@@ -134,7 +136,10 @@ for(k=1;k<=n;k*=2)
 ```c
 int func(int n){
     int i=0,sum=0;
-    while(sum<n)sum+= ++i;
+    while(sum<n)
+        i = i+1;
+        sum += i;
+        // sum += ++i;
     return i;
 }
 ```

@@ -1,0 +1,5 @@
+message(STATUS "====================================================")
+message(STATUS "&&&    found executable programme: Chap5_2_BinaryTreeADT")
+add_executable(Chap5_2_BinaryTreeADT Chap5_2_BinaryTreeADT.cpp)
+message(STATUS "***  Exiting Chapter folder Problems")
+add_subdirectory(Problems)

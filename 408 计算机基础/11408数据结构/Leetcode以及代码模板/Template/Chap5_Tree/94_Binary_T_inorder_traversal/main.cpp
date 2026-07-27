@@ -1,5 +1,3 @@
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "misc-no-recursion"
 // 中序遍历:左子树-根节点-右子树的方式进行遍历
 // 整体思路:
 // 1.定义一个vector用于存储结果(C++:STL/C:链式存储malloc)

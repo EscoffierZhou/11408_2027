@@ -32,12 +32,12 @@ typedef struct{
 	Elemtype data[MaxSize];
     int length;
 }SqList; // 类型名称
-void InitList(SqList &L){
-    L.length = 0; 
+void InitList(SqList &A){
+    A.length = 0; 
 }
 int main(){
     SqList L;
-    // InitList(L);编译器可能会也可能不会自动初始化,可能有脏数据
+    InitList(L);//编译器可能会也可能不会自动初始化,可能有脏数据
     return 0;
 }
 ```
@@ -50,6 +50,7 @@ typedef struct{
     int MaxSize;
     int length;
 }SqList; // 类型名称
+
 void InitList(SqList &L){
     // malloc其实返回的是一个指向连续空间的"指针",所以需要*data
 	L.data = (Elemtype*)malloc(sizeof(ElemType)*InitSize);
