@@ -165,6 +165,8 @@ DCDAB DDDDC DDDDC DCDAC
 >
 >**<font color=red>性能指标包括动态指标(CPI)+静态指标(字长)</font>**
 >**字长又称作数据处理吞吐量,字长越大,精度寻址能力越强,性能越强**
+>
+>**吞吐量决定了全局性能**
 
 ****
 
@@ -250,27 +252,27 @@ DBBDA CCDCC DCDAD BDDBB
 
 ## Homework(3)大题:算CPI(加权法/定义法)
 
-1.微机A和B采用不同主频的CPU芯片,片内逻辑电路完全相同
+**1.微机A和B采用不同主频的CPU芯片,片内逻辑电路完全相同**
 
->(1)微机A的CPU主频是8MHz,微机B为12MHz,则微机A的CPU时钟周期是?
+(1)微机A的CPU主频是8MHz,微机B为12MHz,则微机A的CPU时钟周期是?
+
+>1/8=0.125$\mu$s(注意单位)
+
+(2)微机A的平均指令执行速度为0.4MIPS,微机A的平均指令周期为?
+
+>平均指令周期是一条周期的时间,$1/(0.4\times10^6) = 2.5\times10^{-6}$
+
+(3)微机B的平均指令执行速度为多少
+
+>$T = \frac{1}{12*10^6} = \frac{1}{12}\times10^{-6}s$
 >
->>1/8=0.125$\mu$s(注意单位)
+>$MIPS = \frac{f}{CPI\times 10^6} ,\rightarrow \therefore CPI = \frac{0.8MHz}{0.4MIPS} = 20$
 >
->(2)微机A的平均指令执行速度为0.4MIPS,微机A的平均指令周期为?
+>指令周期是所有周期的时间= 包含的时钟周期个数 ($\text{CPI}$)$\times$单个时钟周期时间 ($T_B$) 
 >
->>平均指令周期是一条周期的时间,$1/(0.4\times10^6) = 2.5\times10^{-6}$
->
->(3)微机B的平均指令执行速度为多少
->
->>   $T = \frac{1}{12*10^6} = \frac{1}{12}\times10^{-6}s$
+>>   $$T_B = 20 \times \frac{1}{12} \, \mu\text{s} = \frac{5}{3} \, \mu\text{s} \approx 1.67 \, \mu\text{s}$$
 >>
->>   $MIPS = \frac{f}{CPI\times 10^6} ,\rightarrow \therefore CPI = \frac{0.8MHz}{0.4MIPS} = 20$
->>
->>   指令周期是所有周期的时间= 包含的时钟周期个数 ($\text{CPI}$)$\times$单个时钟周期时间 ($T_B$) 
->>
->>   >   $$T_B = 20 \times \frac{1}{12} \, \mu\text{s} = \frac{5}{3} \, \mu\text{s} \approx 1.67 \, \mu\text{s}$$
->>   >
->>   >   $$\text{MIPS}_B = \frac{f_B}{\text{CPI}_B} = \frac{12\text{ MHz}}{20} = 0.6 \, \text{MIPS}$$
+>>   $$\text{MIPS}_B = \frac{f_B}{\text{CPI}_B} = \frac{12\text{ MHz}}{20} = 0.6 \, \text{MIPS}$$
 
 2.某台计算机只有LOAD/STORE指令能对存储器进行读/写操作，其他指令只对寄存器进行操作。根据程序跟踪试验结果，已知每条指令所占的比例及CPI数如下表所示。
 
